@@ -134,10 +134,7 @@ class AuthenticateActivity : ComponentActivity() {
         super.onWindowFocusChanged(hasFocus)
         Log.d(TAG, lifecycleTag("onWindowFocusChanged") + " hasFocus=" + hasFocus)
         if (hasFocus && !hasWindowFocus.value) {
-            lifecycleScope.launch {
-                delay(UI_DEFER_MS)
-                hasWindowFocus.value = true
-            }
+            hasWindowFocus.value = true
         }
     }
 
@@ -315,8 +312,7 @@ class AuthenticateActivity : ComponentActivity() {
         const val ACTION_AUTHENTICATE = "com.android.applocker.action.AUTHENTICATE"
         const val ACTION_SYSTEM_UNLOCK = "com.android.applocker.action.SYSTEM_UNLOCK"
 
-        private const val EXIT_ANIMATION_MS = 300L
-        private const val UI_DEFER_MS = 400L
+        private const val EXIT_ANIMATION_MS = 220L
     }
 }
 
