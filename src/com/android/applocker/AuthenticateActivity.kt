@@ -72,7 +72,7 @@ class AuthenticateActivity : ComponentActivity() {
         packageName = intent.getStringExtra(EXTRA_PACKAGE_NAME)
             ?: intent.getStringExtra(EXTRA_LOCKED_PACKAGE)
 
-        userId = intent.getIntExtra(EXTRA_USER_ID, 0).takeIf { it != 0 }
+        userId = intent.getIntExtra(EXTRA_USER_ID, -1).takeIf { it >= 0 }
             ?: UserHandle.getUserId(intent.getIntExtra(EXTRA_LOCKED_UID, 0))
 
         appLabel = intent.getStringExtra(EXTRA_APP_LABEL)
